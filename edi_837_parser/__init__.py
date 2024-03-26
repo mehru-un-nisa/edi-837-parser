@@ -12,7 +12,7 @@ def parse(path: str, debug: bool = False) -> TransactionSets:
 
 	transaction_sets = []
 	if os.path.isdir(path):
-		files = _find_edi_835_files(path)
+		files = _find_edi_837_files(path)
 		for file in files:
 			file_path = f'{path}/{file}'
 			if debug:
@@ -31,10 +31,10 @@ def parse(path: str, debug: bool = False) -> TransactionSets:
 	return TransactionSets(transaction_sets)
 
 
-def _find_edi_835_files(path: str) -> List[str]:
+def _find_edi_837_files(path: str) -> List[str]:
 	files = []
 	for file in os.listdir(path):
-		if file.endswith('.txt') or file.endswith('.835'):
+		if file.endswith('.txt') or file.endswith('.837'):
 			files.append(file)
 
 	return files
